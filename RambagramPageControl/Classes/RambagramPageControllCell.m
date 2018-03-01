@@ -38,7 +38,7 @@
     
     if (borderColor) {
         self.contentView.layer.borderColor = borderColor.CGColor;
-        self.contentView.layer.borderWidth = 1.0 / [UIScreen mainScreen].scale;
+        self.contentView.layer.borderWidth = 1.0;
     } else {
         self.contentView.layer.borderWidth = 0.0;
     }
