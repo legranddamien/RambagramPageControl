@@ -33,6 +33,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
+    [self.pageControl setShape:RambagramPageControlShapeSquare atIndex:0];
     self.pageControl.numberOfPages = [self collectionView:self.collectionView
                                    numberOfItemsInSection:0];
     self.pageControl.currentPage = 0;

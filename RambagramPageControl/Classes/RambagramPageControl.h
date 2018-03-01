@@ -19,6 +19,7 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "RambagramPageControlShape.h"
 
 /**
  PageControl ala Instagram
@@ -52,5 +53,13 @@
  Spacing between dots
  */
 @property (nonatomic, assign) IBInspectable CGFloat spacing;
+
+/**
+ Override the shape at an index
+
+ @param shape shape to use
+ @param index the index to apply the shape
+ */
+- (void)setShape:(RambagramPageControlShape)shape atIndex:(NSInteger)index;
 
 @end

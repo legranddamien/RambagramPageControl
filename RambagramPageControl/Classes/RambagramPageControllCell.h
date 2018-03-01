@@ -19,6 +19,7 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "RambagramPageControlShape.h"
 
 /**
  PageControl dot cell
@@ -27,5 +28,6 @@
 
 @property (nonatomic, strong) UIColor *dotColor;
 @property (nonatomic, strong) UIColor *selectedDotColor;
+@property (nonatomic) RambagramPageControlShape shape;
 
 @end

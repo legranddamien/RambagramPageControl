@@ -27,6 +27,8 @@
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, weak) RambagramFlowLayout *layout;
 
+@property (nonatomic, strong) NSDictionary *shapes;
+
 @end
 
 @implementation RambagramPageControl
@@ -138,6 +140,12 @@
                                  animated:YES];
 }
 
+- (void)setShape:(RambagramPageControlShape)shape atIndex:(NSInteger)index {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:self.shapes.count + 1];
+    dict[@(index)] = @(shape);
+    self.shapes = [NSDictionary dictionaryWithDictionary:dict];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
@@ -149,6 +157,8 @@
                            cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     RambagramPageControllCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RambagramPageControllCell class])
                                                                            forIndexPath:indexPath];
+    NSNumber *shape = (self.shapes) ? self.shapes[@(indexPath.item)] : nil;
+    cell.shape = (shape) ? [shape integerValue] : RambagramPageControlShapeDot;
     cell.dotColor = self.dotColor;
     cell.selectedDotColor = self.selectedDotColor;
     cell.selected = self.currentPage == indexPath.row;

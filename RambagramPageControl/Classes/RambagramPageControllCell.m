@@ -20,18 +20,12 @@
 
 #import "RambagramPageControllCell.h"
 
-@interface RambagramPageControllCell ()
-
-@property (nonatomic, weak) UIImageView *imageView;
-
-@end
-
 @implementation RambagramPageControllCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.contentView.layer.cornerRadius = self.contentView.bounds.size.width / 2;
+        self.shape = RambagramPageControlShapeDot;
         self.contentView.layer.masksToBounds = YES;
         self.contentView.layer.backgroundColor = self.selected ? self.selectedDotColor.CGColor : self.dotColor.CGColor;
     }
@@ -43,6 +37,20 @@
         self.contentView.layer.backgroundColor = self.selectedDotColor.CGColor;
     } else {
         self.contentView.layer.backgroundColor = self.dotColor.CGColor;
+    }
+}
+
+- (void)setShape:(RambagramPageControlShape)shape {
+    _shape = shape;
+    
+    switch (_shape) {
+        case RambagramPageControlShapeDot:
+            self.contentView.layer.cornerRadius = self.contentView.bounds.size.width / 2.0;
+            break;
+            
+        case RambagramPageControlShapeSquare:
+            self.contentView.layer.cornerRadius = 0.0;
+            break;
     }
 }
 
