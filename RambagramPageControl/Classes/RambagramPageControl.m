@@ -69,7 +69,13 @@
     if (numberOfPages == _numberOfPages) {
         return;
     }
+    
     _numberOfPages = numberOfPages;
+    
+    if (self.hidesForSinglePage) {
+        self.hidden = (numberOfPages <= 1);
+    }
+    
     [self setupCollectionViewWithFrame:self.frame];
     
     if (numberOfPages < 6) {

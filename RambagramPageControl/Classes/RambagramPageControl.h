@@ -29,6 +29,11 @@
 @property (nonatomic, assign) NSUInteger numberOfPages;
 
 /**
+ Hide the page control when numberOfPages is <= 1
+ */
+@property (nonatomic, assign) IBInspectable BOOL hidesForSinglePage;
+
+/**
  Page dot size
  */
 @property (nonatomic, assign) IBInspectable CGSize dotSize;
