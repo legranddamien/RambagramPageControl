@@ -161,6 +161,8 @@
     cell.shape = (shape) ? [shape integerValue] : RambagramPageControlShapeDot;
     cell.dotColor = self.dotColor;
     cell.selectedDotColor = self.selectedDotColor;
+    cell.dotBorderColor = self.dotBorderColor;
+    cell.selectedDotBorderColor = self.selectedDotBorderColor;
     cell.selected = self.currentPage == indexPath.row;
     return cell;
 }

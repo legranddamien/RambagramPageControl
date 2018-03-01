@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) UIColor *dotColor;
 @property (nonatomic, strong) UIColor *selectedDotColor;
+@property (nonatomic, strong) UIColor *dotBorderColor;
+@property (nonatomic, strong) UIColor *selectedDotBorderColor;
 @property (nonatomic) RambagramPageControlShape shape;
 
 @end

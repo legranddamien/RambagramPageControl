@@ -50,6 +50,16 @@
 @property (nonatomic, strong) IBInspectable UIColor *selectedDotColor;
 
 /**
+ Dot border color (nil = no border)
+ */
+@property (nonatomic, strong) IBInspectable UIColor *dotBorderColor;
+
+/**
+ Selected dot border color (nil = no border)
+ */
+@property (nonatomic, strong) IBInspectable UIColor *selectedDotBorderColor;
+
+/**
  Spacing between dots
  */
 @property (nonatomic, assign) IBInspectable CGFloat spacing;

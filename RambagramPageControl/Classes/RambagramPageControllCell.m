@@ -33,11 +33,16 @@
 }
 
 - (void)setSelected:(BOOL)selected {
-    if (selected) {
-        self.contentView.layer.backgroundColor = self.selectedDotColor.CGColor;
+    self.contentView.layer.backgroundColor = (selected) ? self.selectedDotColor.CGColor : self.dotColor.CGColor;
+    UIColor *borderColor = (selected) ? self.selectedDotBorderColor : self.dotBorderColor;
+    
+    if (borderColor) {
+        self.contentView.layer.borderColor = borderColor.CGColor;
+        self.contentView.layer.borderWidth = 1.0 / [UIScreen mainScreen].scale;
     } else {
-        self.contentView.layer.backgroundColor = self.dotColor.CGColor;
+        self.contentView.layer.borderWidth = 0.0;
     }
+    
 }
 
 - (void)setShape:(RambagramPageControlShape)shape {
