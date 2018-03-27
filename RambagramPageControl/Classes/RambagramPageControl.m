@@ -96,20 +96,21 @@
 - (void)setupCollectionViewWithFrame:(CGRect)frame {
     [self.collectionView removeFromSuperview];
     
-    if (self.numberOfPages < 2) {
+    if (self.hidesForSinglePage && self.numberOfPages < 2) {
         return;
     }
+    
     RambagramFlowLayout *layout = [RambagramFlowLayout new];
     layout.itemSize = self.dotSize;
-    layout.minimumLineSpacing = self.spacing;;
+    layout.minimumLineSpacing = self.spacing;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     CGSize contentSize = CGSizeZero;
-    contentSize.width = self.numberOfPages * [layout step] - (self.numberOfPages % 2) * layout.minimumLineSpacing ;
+    contentSize.width = self.numberOfPages * [layout step] - (self.numberOfPages % 2) * layout.minimumLineSpacing;
     contentSize.height = layout.itemSize.height;
     CGRect collectionViewFrame = CGRectZero;
     NSUInteger numberOfItems = MIN(7, self.numberOfPages);
     
-    collectionViewFrame.size.width = numberOfItems * [layout step] - (numberOfItems % 2) * layout.minimumLineSpacing ;
+    collectionViewFrame.size.width = numberOfItems * [layout step] - (numberOfItems % 2) * layout.minimumLineSpacing;
     collectionViewFrame.size.height = layout.itemSize.height;
     collectionViewFrame.origin = CGPointMake(frame.size.width / 2 - collectionViewFrame.size.width / 2,
                                              frame.size.height / 2 - collectionViewFrame.size.height / 2);
